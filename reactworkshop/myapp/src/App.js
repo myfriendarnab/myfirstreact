@@ -1,17 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Demo from "./Demo";
-import Product from "./components/Product";
+import Currency from "./components/Currency";
+// import Demo from "./Demo";
+import ProductList from "./components/container/ProductList";
 
 function App() {
   return (
     <div className="App">
       {/* <Demo /> */}
-      <Product />
-      <Product />
-      <Product />
-      <Product />
+      <Currency currencyChange={(currencycode)=> console.log(currencycode)} />
+      <ProductList />
     </div>
   );
 }
