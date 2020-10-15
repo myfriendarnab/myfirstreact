@@ -3,6 +3,7 @@ import React from "react";
 //parent to child communication
 class Currency extends React.Component{
     render(){
+        // const currencycodes = this.props.currencycodes;//["INR","USD","EUR","GBP","CAD"];
         const currencycodes = ["INR","USD","EUR","GBP","CAD"];
         return(
             <select onChange={(evt)=> this.props.currencyChange(evt.target.value)}>

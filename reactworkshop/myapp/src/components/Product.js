@@ -1,4 +1,7 @@
 import React from "react";
+import { ThemeContext } from "../context";
+import Column from "./Column";
+
 //component to display product information
 class Product extends React.Component {
   //no keyword in class variables
@@ -9,6 +12,9 @@ class Product extends React.Component {
   //   productStock: true,
   //   productImage: "https://5.imimg.com/data5/QF/AP/MY-11168283/one-ride-2018-t-shirt-500x500.png", //online resource
   // };
+
+  //AppContext: Consuming it in Class component - part-1
+  static contextType = ThemeContext;
 
   renderStock(stock, wishlist) {
    if (stock) {
@@ -29,14 +35,17 @@ class Product extends React.Component {
  }
 
   render() {
-    const { pData, wishlist } = this.props; //literal destructing
+    //AppContext: Consuming it in Class component - part-2
+    console.log(this.context);
+    
+    const { pData, currencyCode, wishlist } = this.props; //literal destructing
     return (
-      <div id="product">
+      <Column size={3}>
         <img src={pData.productImage} alt="" />
         <h4>{pData.productName}</h4>
-        <h5>INR {pData.productPrice}</h5>
+        <h5>{currencyCode} {pData.productPrice}</h5>
         {this.renderStock(pData.productStock, wishlist)}
-      </div>
+      </Column>
     );
   }
 }
