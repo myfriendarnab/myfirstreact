@@ -15,7 +15,7 @@ class Checkout extends React.Component {
         {/* // CONTROLLED COMPONENT */}
         <input
           type="text"
-          onChange={(e) => this.setState({ name: e.target.value })}
+          onChange={e => this.setState({ name: e.target.value })}
         />
         <button>Submit</button>
         <label>Email</label>
@@ -26,8 +26,8 @@ class Checkout extends React.Component {
         */}
         <input
           type="text"
-          ref={(r) => (this.emailref = r)}
-          onChange={(e) => this.setState({ email: e.target.value })}
+          ref={r => (this.emailref = r)}
+          onChange={e => this.setState({ email: e.target.value })}
           />
           {this.emailRef&&this.emailRef.value === "" ? <span>Email is required</span> : null}
       </form>

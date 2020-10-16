@@ -1,5 +1,6 @@
 import React from "react";
-import NestedDemo from "./NestedDemo";
+// import NestedDemo from "./NestedDemo";
+//component file names must be in CapitalCase
 
 class PureComponentDemo extends React.PureComponent {
 //class PureComponentDemo extends React.Component {

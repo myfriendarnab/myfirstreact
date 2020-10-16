@@ -1,6 +1,9 @@
 import React from "react";
 import Product from "../Product";
 import ProductService from "../../services/product-service";
+import { connect } from "react-redux"; //connect(how to connect/mappingFunction, what to connect/component)
+
+
 
 //list the porducts dynamically
 //containers are smart components whereas directly under component dir are dumb components
@@ -58,6 +61,17 @@ class ProductList extends React.Component {
               wishlist={i % 2 === 0}
               currencyCode={this.props.currentCurrency}
               key={p.productId}
+              btnClick={()=>{
+                //add product to cart
+                //redirect to cart using history prop automatically added by router
+                if (i%2===0) { 
+                  this.props.history.push("/checkout");
+                }
+                else{
+                  this.props.history.push("/wishlist");
+                }
+
+              }}
             />
           ),
           this
@@ -67,4 +81,13 @@ class ProductList extends React.Component {
   }
 }
 
-export default ProductList;
+//all the store data in the component comes as a prop 
+const mapStoreDataToProp = (storeData)=>{
+  return ({
+    //prop: store data
+    currentCurrency:storeData
+  });
+};
+
+//connecting currentCurrency prop to store data AND THEN exporting ProductList
+export default connect(mapStoreDataToProp)(ProductList);

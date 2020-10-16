@@ -1,0 +1,14 @@
+[
+    {
+      "menuText": "Home",
+      "menuLink": "/"
+    },
+    {
+      "menuText": "Products",
+      "menuLink": "/products"
+    },
+    {
+      "menuText": "CheckOut",
+      "menuLink": "/checkout"
+    }
+  ]

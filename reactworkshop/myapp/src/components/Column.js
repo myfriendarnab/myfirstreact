@@ -16,6 +16,8 @@ function Column(props) {
 
   const txtColor = theme==='dark'?'text-light':'text-dark';
   const cls = "col-md-" + colsize + ' ' + txtColor;
+  
+  //children element represent all children component in wrapper UI
   return <div className={cls}> {props.children} </div>;
 }
 

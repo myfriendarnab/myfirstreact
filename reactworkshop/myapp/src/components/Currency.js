@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux"; //connect(how to connect/mappingFunction, what to connect/component) OR connect(how to fetch, what to modify)
+import CurrencyActions from "../store/actions/currency-actions";
 
 //parent to child communication
 class Currency extends React.Component{
@@ -13,4 +15,10 @@ class Currency extends React.Component{
     }
 }
 
-export default Currency;
+const mapDispatchToProps = dispatch =>{
+    return{
+        currencyChange: code=>dispatch(CurrencyActions.updateCurrency(code)),
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Currency);
